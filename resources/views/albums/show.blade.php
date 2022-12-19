@@ -13,6 +13,7 @@
                 @foreach ($albums as $album)
                         <h2 class='title'>
                             <a href="/albums/{{ $album->id }}">{{ $album->album_name }}</a>
+                            <div class="edit"><a href="/albums/{{ $album->id }}/edit">edit</a></div>
                         </h2>
                 @endforeach
             </div>
@@ -23,6 +24,7 @@
                 <p class='date'>Created at {{ $an_album->album_date}}</p>
                 <p class='memo'>{{ $an_album->album_memo }}</p>
             </div>
+            
             <div class='album_images'>
                 <a href='/albums/create'>create</a>
                 <h2 class='title'>The images are shown here.</h2>

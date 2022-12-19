@@ -5,6 +5,7 @@
         <title>Album Names</title>
     </head>
     <body>
+        <h1 class="title">編集画面</h1>
         <h1>Album Names</h1>
         <div class='albums'>
             <div class='album_regions'>
@@ -15,30 +16,29 @@
             </div>
             
             <div class='album_show'>
-                <form action="/albums" method="POST">
+                <form action="/albums/{{ $album->id }}" method="POST">
                     @csrf
+                    @method('PUT')
                     <div class="album_name">
                         <h2>Album Name</h2>
-                        <input type="text" name="album[album_name]" placeholder="Album name" value="{{ old('album.album_name') }}"/>
-                        <p class="name__error" style="color:red">{{ $errors->first('album.album_name') }}</p>
+                        <input type='text' name='album[album_name]' value="{{ $album->album_name }}">
                     </div>
                     <div class="region_name">
                         <h2>Region Name is here.</h2>
                     </div>
                     <div class="album_date">
                         <h2>Album Date</h2>
-                        <textarea name="album[album_date]" placeholder="2000-01-01"></textarea>
+                        <input type='date' name='album[album_date]' value="{{ $album->album_date }}">
                     </div>
                     <div class="album_memo">
                         <h2>Album Memo</h2>
-                        <textarea name="album[album_memo]" placeholder="It was sunny day.">{{ old('album.album_memo') }}</textarea>
-                        <p class="memo__error" style="color:red">{{ $errors->first('albu.album_memo') }}</p>
+                        <input type='text' name='album[album_memo]' value="{{ $album->album_memo }}">
                     </div>
                     <div class="user_id">
                         <h2>Your id</h2>
-                        <textarea name="album[user_id]" placeholder="1"></textarea>
+                        <input type='user_id' name='album[user_id]' value="{{ $album->user_id }}">
                     </div>
-                    <input type="submit" value="store"/>
+                    <input type="submit" value="save">
                 </form>
             </div>
             

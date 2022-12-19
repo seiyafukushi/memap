@@ -31,3 +31,6 @@ Route::get('/albums/{album}', [AlbumController::class ,'show']);
 Route::get('/cloudinary', [CloudinaryController::class, 'cloudinary']);  //投稿フォームの表示
 Route::post('/cloudinary', [CloudinaryController::class, 'cloudinary_store']);  //画像保存処理
 Route::post('/albums', [AlbumController::class, 'store']);
+
+Route::get('/albums/{album}/edit', [AlbumController::class, 'edit']);
+Route::put('/albums/{album}', [AlbumController::class, 'update']);

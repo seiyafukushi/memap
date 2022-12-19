@@ -13,6 +13,7 @@
                 @foreach ($albums as $album)
                         <h2 class='title'>
                             <a href="/albums/{{ $album->id }}">{{ $album->album_name }}</a>
+                            <div class="edit"><a href="/albums/{{ $album->id }}/edit">edit</a></div>
                         </h2>
                 @endforeach
             </div>
