@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AlbumController;  //外部にあるAlbumControllerクラスをインポート。
+use App\Http\Controllers\AlbumController;//外部にあるAlbumControllerクラスをインポート。
+use App\Http\Controllers\CloudinaryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,4 +18,16 @@ use App\Http\Controllers\AlbumController;  //外部にあるAlbumControllerク�
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/', [AlbumController::class, 'index']);
+
+Route::get('/albums/create', [AlbumController::class, 'create']);
+Route::get('/', [AlbumController::class, 'home']);
+
+//Route::get('/', function() {
+//    return view('albums/home');
+//});
+
+Route::get('/albums/{album}', [AlbumController::class ,'show']);
+
+Route::get('/cloudinary', [CloudinaryController::class, 'cloudinary']);  //投稿フォームの表示
+Route::post('/cloudinary', [CloudinaryController::class, 'cloudinary_store']);  //画像保存処理
+Route::post('/albums', [AlbumController::class, 'store']);
