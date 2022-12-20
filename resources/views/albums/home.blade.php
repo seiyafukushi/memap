@@ -13,15 +13,16 @@
                 @foreach ($albums as $album)
                         <h2 class='title'>
                             <a href="/albums/{{ $album->id }}">{{ $album->album_name }}</a>
+                            <div class="edit"><a href="/albums/{{ $album->id }}/edit">edit</a></div>
                         </h2>
                 @endforeach
             </div>
             
             <div class='album_show'>
-                <h2 class='title'>{{ $album->album_name }}</h2>
+                <h2 class='title'>{{ $latest_album->album_name }}</h2>
                 <div class='map'>The map is here.</map>
-                <p class='date'>Created at {{ $album->album_date}}</p>
-                <p class='memo'>{{ $album->album_memo }}</p>
+                <p class='date'>Created at {{ $latest_album->album_date}}</p>
+                <p class='memo'>{{ $latest_album->album_memo }}</p>
             </div>
             
             <div class='album_images'>
