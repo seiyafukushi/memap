@@ -15,7 +15,12 @@ return new class extends Migration
     {
         Schema::create('albums', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained();
+            $table->string('album_name', 50);
+            $table->string('album_memo', 200);
+            $table->date('album_date');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

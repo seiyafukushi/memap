@@ -40,6 +40,11 @@
                     </div>
                     <input type="submit" value="save">
                 </form>
+                <form action="/albums/{{ $album->id }}" id="form_{{ $album->id }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button type="button" onclick="deleteAlbum({{ $album->id }})">delete</button>
+                </form>
             </div>
             
             <div class='album_images'>
@@ -51,5 +56,13 @@
                 </form>
             </div>
         </div>
+        <script>
+            function deleteAlbum(id) {
+                'use strict'
+                if (confirm('削除すると復元できません。\n本当に削除しますか？')) {
+                    document.getElementById(`form_${id}`).submit();
+                }
+            }
+        </script>
     </body>
 </html>

@@ -34,3 +34,4 @@ Route::post('/albums', [AlbumController::class, 'store']);
 
 Route::get('/albums/{album}/edit', [AlbumController::class, 'edit']);
 Route::put('/albums/{album}', [AlbumController::class, 'update']);
+Route::delete('/albums/{album}', [AlbumController::class,'delete']);

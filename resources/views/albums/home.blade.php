@@ -19,10 +19,10 @@
             </div>
             
             <div class='album_show'>
-                <h2 class='title'>{{ $album->album_name }}</h2>
+                <h2 class='title'>{{ $latest_album->album_name }}</h2>
                 <div class='map'>The map is here.</map>
-                <p class='date'>Created at {{ $album->album_date}}</p>
-                <p class='memo'>{{ $album->album_memo }}</p>
+                <p class='date'>Created at {{ $latest_album->album_date}}</p>
+                <p class='memo'>{{ $latest_album->album_memo }}</p>
             </div>
             
             <div class='album_images'>
