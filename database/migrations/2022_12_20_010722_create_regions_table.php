@@ -13,9 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('albums', function (Blueprint $table) {
+        Schema::create('regions', function (Blueprint $table) {
             $table->id();
+            $table->string('region_name');
+            $table->string('region_address');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -26,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('albums');
+        Schema::dropIfExists('regions');
     }
 };
