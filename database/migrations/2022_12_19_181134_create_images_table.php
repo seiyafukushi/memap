@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string('image_path');
             $table->foreignId('album_id')->constrained();
             $table->string('image_caption')->nullable();
+            $table->timestamps();
+            $table->softDeletes();
         });
     }
 

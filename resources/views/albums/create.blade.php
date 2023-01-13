@@ -1,14 +1,12 @@
-<!DOCTYPE HTML>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <title>Album Names</title>
-    </head>
-    <body>
-        <h1>Album Names</h1>
+<x-app-layout>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            {{ __('Album create') }}
+        </h2>
+    </x-slot>
+           <h1>Album Names</h1>
         <div class='albums'>
-            <div class='album_regions'>
-                The regions will be written here.
+
             <div class="footer">
                 <a href="/">戻る</a>
             </div>
@@ -27,29 +25,39 @@
                     </div>
                     <div class="album_date">
                         <h2>Album Date</h2>
-                        <textarea name="album[album_date]" placeholder="2000-01-01"></textarea>
+                        <input type="date" name="album[album_date]" placeholder="2000-01-01"></input>
                     </div>
                     <div class="album_memo">
                         <h2>Album Memo</h2>
                         <textarea name="album[album_memo]" placeholder="It was sunny day.">{{ old('album.album_memo') }}</textarea>
-                        <p class="memo__error" style="color:red">{{ $errors->first('albu.album_memo') }}</p>
+                        <p class="memo__error" style="color:red">{{ $errors->first('album.album_memo') }}</p>
                     </div>
                     <div class="user_id">
-                        <h2>Your id</h2>
-                        <textarea name="album[user_id]" placeholder="1"></textarea>
+                        <input value="{{ Auth::user()->id }}" type="hidden" name="album[user_id]">
+                    </div>
+                    <h2>Add New Region</h2>
+                    <div class="region_name">
+                        <h2>Region Name</h2>
+                        <textarea name="region[region_name]" placeholder="地名・場所名を記入"></textarea>
+                        <p class="region_name__error" style="color:red">{{ $errors->first('region.region_name') }}</p>
+                    </div>
+                    
+                    <div class="region_address">
+                        <h2>Region Address</h2>
+                        <textarea name="region[region_address]" placeholder="都道府県から番地までを記入"></textarea>
+                        <p class="region_address__error" style="color:red">{{ $errors->first('region.region_address') }}</p>
                     </div>
                     <input type="submit" value="store"/>
                 </form>
             </div>
             
-            <div class='album_images'>
-                <h2 class='title'>The images are shown here.</h2>
-                <form action="/cloudinary" method="POST" enctype="multipart/form-data">
-                    @csrf
-                    <input type="file" name="image">
-                    <button>画像をアップロード</button>
-                </form>
-            </div>
+            <!--<div class='album_images'>-->
+            <!--    <h2 class='title'>The images are shown here.</h2>-->
+            <!--    <form action="/cloudinary/create" method="POST" enctype="multipart/form-data">-->
+            <!--        @csrf-->
+            <!--        <input type="file" name="image">-->
+            <!--        <button>画像をアップロード</button>-->
+            <!--    </form>-->
+            <!--</div>-->
         </div>
-    </body>
-</html>
+</x-app-layout>

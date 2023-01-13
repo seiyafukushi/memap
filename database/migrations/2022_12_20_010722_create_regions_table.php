@@ -17,6 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('region_name');
             $table->string('region_address');
+            $table->timestamps();
+            $table->softDeletes();
         });
     }
 

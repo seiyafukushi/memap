@@ -16,6 +16,8 @@ class AlbumRequest extends FormRequest
         return [
             'album.album_name' => 'required|string|max:50',
             'album.album_memo' => 'required|string|max:1000',
+            'region.region_name' => 'required|string|max:50',
+            'region.region_address' => 'required|string|max:1000',
         ];
     }
 }

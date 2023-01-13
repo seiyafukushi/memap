@@ -17,6 +17,8 @@ return new class extends Migration
             $table->foreignId('album_id')->constrained('albums');   //参照先のテーブル名を
             $table->foreignId('region_id')->constrained('regions');    //constrainedに記載
             $table->primary(['album_id', 'region_id']);
+            $table->timestamps();
+            $table->softDeletes();
         });
     }
 

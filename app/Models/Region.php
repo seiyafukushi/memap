@@ -13,4 +13,9 @@ class Region extends Model
     {
         return $this->belongsToMany(Album::class);
     }
+    
+    protected $fillable = [
+        'region_name',
+        'region_address',
+    ];
 }

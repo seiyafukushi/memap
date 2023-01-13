@@ -19,13 +19,14 @@ class Album extends Model
     public function getPaginateByLimit(int $limit_count = 10)
     {
         // updated_atで降順に並べたあと、limitで件数制限をかける
-        return $this->orderBy('updated_at', 'ASC')->paginate($limit_count);
+        return $this::with('regions')->orderBy('updated_at', 'ASC')->paginate($limit_count);
     }
     protected $fillable = [
         'album_name',
         'album_date',
         'album_memo',
         'user_id',
+        'region_id'
     ];
     
     public function images()
@@ -36,7 +37,7 @@ class Album extends Model
     {
         return $this->belongsTo(User::class);
     }
-    public function resions(){
+    public function regions(){
         return $this->belongsToMany(Region::class);
     }
 }
