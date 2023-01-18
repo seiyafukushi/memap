@@ -4,24 +4,14 @@
             {{ __('Album create') }}
         </h2>
     </x-slot>
-           <h1>Album Names</h1>
-        <div class='albums'>
-
-            <div class="footer">
-                <a href="/">戻る</a>
-            </div>
-            </div>
-            
-            <div class='album_show'>
+        <div class='albums flex justify-center font-serif'>
+            <div class='album_show text-center'>
                 <form action="/albums" method="POST">
                     @csrf
                     <div class="album_name">
                         <h2>Album Name</h2>
                         <input type="text" name="album[album_name]" placeholder="Album name" value="{{ old('album.album_name') }}"/>
                         <p class="name__error" style="color:red">{{ $errors->first('album.album_name') }}</p>
-                    </div>
-                    <div class="region_name">
-                        <h2>Region Name is here.</h2>
                     </div>
                     <div class="album_date">
                         <h2>Album Date</h2>
@@ -47,10 +37,13 @@
                         <textarea name="region[region_address]" placeholder="都道府県から番地までを記入"></textarea>
                         <p class="region_address__error" style="color:red">{{ $errors->first('region.region_address') }}</p>
                     </div>
-                    <input type="submit" value="store"/>
+                    <button type="submit" value="store" class="mg-0 bg-gradient-to-br from-green-300 to-green-800 hover:bg-gradient-to-tl text-white rounded px-4 py-2">作成</button>
                 </form>
-            </div>
-            
+                
+                <button class="footer bg-gradient-to-r from-blue-300 to-blue-800 hover:bg-gradient-to-l text-white rounded px-4 py-2">
+                    <a href="/" class="mt-4">ホームに戻る</a>
+                </button>   
+            </div>     
             <!--<div class='album_images'>-->
             <!--    <h2 class='title'>The images are shown here.</h2>-->
             <!--    <form action="/cloudinary/create" method="POST" enctype="multipart/form-data">-->

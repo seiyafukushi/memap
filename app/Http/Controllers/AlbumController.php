@@ -77,7 +77,7 @@ class AlbumController extends Controller
         $images = $album->with('images')->find($album->id)->images;
         return view('albums/edit')->with(['album' => $album,'images'=>$images, 'addresses'=>$addresses, 'regions'=>$regions->get()]);
     }
-    public function update(AlbumRequest $request, Album $album)
+    public function update(Request $request, Album $album)
     {
         $input_album = $request['album'];
         $album->fill($input_album)->save();

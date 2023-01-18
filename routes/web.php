@@ -37,8 +37,8 @@ Route::controller(AlbumController::class)->middleware(['auth'])->group(function(
     Route::delete('/delete-region/{region}/{album}', 'delete_region')->name('delete-region');
     Route::post('/albums', 'store')->name('store');
     Route::get('/albums/create', 'create')->name('create');
+    Route::put('/albums/{album}/edit', 'update')->name('update');
     Route::get('/albums/{album}', 'show')->name('show');
-    Route::put('/albums/{album}', 'update')->name('update');
     Route::delete('/albums/{album}', 'delete')->name('delete');
     Route::get('/albums/{album}/edit', 'edit')->name('edit');
 });
