@@ -4,8 +4,14 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class AlbumRequest extends FormRequest
+class RegionRequest extends FormRequest
 {
+    /**
+     * Determine if the user is authorized to make this request.
+     *
+     * @return bool
+     */
+
     /**
      * Get the validation rules that apply to the request.
      *
@@ -14,8 +20,6 @@ class AlbumRequest extends FormRequest
     public function rules()
     {
         return [
-            'album.album_name' => 'required|string|max:50',
-            'album.album_memo' => 'required|string|max:1000',
             'region.region_name' => 'required|string|max:50',
             'region.region_address' => 'required|string|max:1000',
         ];

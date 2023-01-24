@@ -36,7 +36,7 @@
             <div class='album_images p-4 basis-2/6'>
                 @foreach ($images as $image)
                         <h2 class='image'>
-                            <img src={{$image->image_path}}>
+                            <img src={{$image->image_path}} style="display: block; margin: auto;">
                         </h2>
                 @endforeach
             </div>

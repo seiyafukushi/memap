@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Album;
 use Cloudinary; 
 use App\Http\Requests\AlbumRequest;
+use App\Http\Requests\RegionRequest;
 use App\Models\Image;
 use App\Models\Region;
 
@@ -28,7 +29,7 @@ class AlbumController extends Controller
     {
         return view('albums/create_region')->with(['regions' => $regions->get(), 'album'=>$album]);
     }
-    public function store_region(Request $request, Album $album, Region $region)
+    public function store_region(RegionRequest $request, Album $album, Region $region)
     {
         $input = $request['region'];
         $region->fill($input)->save();

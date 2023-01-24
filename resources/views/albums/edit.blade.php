@@ -26,11 +26,13 @@
                     <div class="region_name">
                         <h2>Region Name</h2>
                         <textarea name="region[region_name]" placeholder="地名・場所名を記入"></textarea>
+                        <p class="region_name__error" style="color:red">{{ $errors->first('region.region_name') }}</p>
                     </div>
                     
                     <div class="region_address">
                         <h2>Region Address</h2>
                         <textarea name="region[region_address]" placeholder="都道府県から番地までを記入"></textarea>
+                        <p class="region_address__error" style="color:red">{{ $errors->first('region.region_address') }}</p>
                     </div>
                     <button class="bg-gradient-to-br from-green-300 to-green-800 hover:bg-gradient-to-tl text-white rounded px-4 py-2"><input type="submit" value="追加"/></button>
                 </form>
@@ -85,12 +87,13 @@
                     @csrf
                     <div class="flex flex-col items-center ">
                         <input type="file" name="image">
+                        <p class="image_path__error">{{$errors->first('image_path')}}</p>
                         <button class="bg-gradient-to-br from-green-300 to-green-800 hover:bg-gradient-to-tl text-white rounded w-[100px] py-2">upload</button>
                     </div>
                 </form>
                 @foreach ($images as $image)
                         <h2 class='image'>
-                            <img src={{$image->image_path}}>
+                            <img src={{$image->image_path}} style="display: block; margin: auto;">
                             <form action="/delete_image/{{ $image->id }}/{{ $album->id }}" method="POST">
                                 @csrf
                                 @method('DELETE')
