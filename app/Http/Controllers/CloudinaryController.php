@@ -19,8 +19,6 @@ class CloudinaryController extends Controller
     {
         //cloudinaryへ画像を送信し、画像のURLを$image_urlに代入している
         $input = $request['image'];
-        $image->fill($input)->save();
-        
         $image_url = Cloudinary::upload($request->file('image')->getRealPath())->getSecurePath();
         $image->image_path = $image_url;
         $image->album_id = $album->id;
