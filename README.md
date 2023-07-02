@@ -2,7 +2,7 @@
 アルバムに写真と場所を登録してどこに行ったかも地図でわかるアプリケーション．  
 
 # DEMO
-[こちら](https://peaceful-sierra-12595.herokuapp.com/login)で試すことができます．  
+[こちら](https://peaceful-sierra-12595.herokuapp.com/login)で試すことができます．  現在GoogleMapのAPIが使えない状態です。
 
 ログインする際には，  
 email : abc@gmail.com  
